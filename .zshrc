@@ -74,3 +74,4 @@ bindkey '^@' expand-alias
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(mise activate zsh)"
