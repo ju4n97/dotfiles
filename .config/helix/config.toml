@@ -1,0 +1,48 @@
+theme = "gruvbox_dark_hard"
+
+[editor]
+line-number = "relative" 
+middle-click-paste = false
+end-of-line-diagnostics = "hint"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-progress-messages = true
+
+[editor.file-picker]
+hidden = false
+
+# [editor.inline-diagnostics]
+# cursor-line = "error"
+# other-lines = "warning"
+
+[keys.normal]
+"C-s" = ":w"
+"A-k" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
+"A-j" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
+
+[keys.select]
+"A-k" = ["goto_line_end","extend_line_below",  "delete_selection", "move_line_up", "paste_before", "select_mode"]
+"A-j" = ["goto_line_end","extend_line_below",  "delete_selection", "paste_after", "select_mode" ]
+
+[keys.normal.space]
+l = ":toggle lsp.display-inlay-hints"
+
+[keys.insert.j]
+k = "normal_mode" 

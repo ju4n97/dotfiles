@@ -1,0 +1,4 @@
+oh-my-posh
+visual-studio-code-bin
+yay
+yay-debug
