@@ -1,4 +1,7 @@
+beekeeper-studio-bin
+beekeeper-studio-bin-debug
 oh-my-posh
+postman-bin
 visual-studio-code-bin
 yay
 yay-debug

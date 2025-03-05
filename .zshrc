@@ -12,10 +12,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-zinit light MichaelAquilina/zsh-you-should-use
 
 # Add snippets
-zinit snippet OMZP::git
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
 
@@ -74,4 +72,14 @@ bindkey '^@' expand-alias
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(mise activate zsh)"
+
+# bun completions
+[ -s "/home/juan/.bun/_bun" ] && source "/home/juan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# go
+export GO_INSTALL="$HOME/go"
+export PATH="$GO_INSTALL/bin:$PATH"
