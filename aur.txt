@@ -1,5 +1,5 @@
 beekeeper-studio-bin
-beekeeper-studio-bin-debug
+brave-bin
 oh-my-posh
 postman-bin
 visual-studio-code-bin

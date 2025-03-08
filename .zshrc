@@ -31,7 +31,7 @@ bindkey '^n' history-search-forward
 # Yank to the system clipboard
 function vi-yank-clipboard {
   zle vi-yank
-  echo "$CUTBUFFER" | wl-copy
+  echo "$CUTBUFFER" | xclip -selection clipboard
 }
 
 zle -N vi-yank-clipboard
@@ -74,7 +74,7 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 # bun completions
-[ -s "/home/juan/.bun/_bun" ] && source "/home/juan/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
