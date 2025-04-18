@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "[+] Installing reflector"
+echo "Installing reflector"
 sudo pacman -S --noconfirm reflector
 
-echo "[+] Creating reflector.service"
+echo "Creating reflector.service"
 sudo tee /etc/systemd/system/reflector.service >/dev/null <<'EOF'
 [Unit]
 Description=Update Arch Linux mirrorlist with Reflector
@@ -18,7 +18,7 @@ ExecStart=/usr/bin/reflector --country $(curl -s https://ipapi.co/country/) \
   --save /etc/pacman.d/mirrorlist
 EOF
 
-echo "[+] Creating reflector.timer"
+echo "Creating reflector.timer"
 sudo tee /etc/systemd/system/reflector.timer >/dev/null <<'EOF'
 [Unit]
 Description=Run reflector weekly
@@ -32,8 +32,8 @@ Persistent=true
 WantedBy=timers.target
 EOF
 
-echo "[+] Enabling reflector.timer"
+echo "Enabling reflector.timer"
 sudo systemctl daemon-reexec
 sudo systemctl enable --now reflector.timer
 
-echo "[+] Reflector timer setup complete"
+echo "Reflector timer setup complete"

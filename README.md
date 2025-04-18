@@ -33,10 +33,17 @@ yay -S --needed $(cat ~/aur.txt)
 ## Setup dotfiles
 
 ```sh
-cd ~ && \
-chmod +x setup.sh setup-hooks.sh setup-reflector.sh && \
-sudo ./setup.sh && \
-./setup-hooks.sh && \
-./setup-reflector.sh && \
-./setup-shortcuts-xfce4.sh
+chmod +x ~/setup.sh ~/setup-hooks.sh ~/setup-reflector.sh && \
+sudo ~/setup.sh && \
+~/setup-hooks.sh && \
+~/setup-reflector.sh && \
+~/setup-shortcuts-xfce4.sh
+```
+
+## Improve internet speed
+
+```sh
+chmod +x ~/.local/bin/improve-dns.sh && \
+~/.local/bin/improve-dns.sh && \
+~/.local/bin/enable-bbr.sh
 ```

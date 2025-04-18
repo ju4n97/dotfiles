@@ -17,7 +17,7 @@ bind_shortcut() {
     xfconf-query -c "$channel" -p "/commands/custom/override" --create -t bool -s true
 }
 
-echo "[+] Setting up XFCE4 custom keyboard shortcuts..."
+echo "Setting up XFCE4 custom keyboard shortcuts..."
 
 bind_shortcut 'flameshot gui' 'Print'
 bind_shortcut 'rofi -show combi -combi-modes "window,run,ssh" -modes combi' '<Super>space'
@@ -25,5 +25,5 @@ bind_shortcut 'rofi -modi emoji -show emoji' '<Super><Shift>E'
 bind_shortcut 'sh -c "xcolor | xsel -ib"' '<Super><Shift>C'
 bind_shortcut 'sh -c "find ~/Desktop/github.com -mindepth 2 -maxdepth 2 -type d | rofi -dmenu -i | xargs -r -I{} code {}"' '<Super><Shift>X'
 
-echo "[+] XFCE4 shortcuts configured."
-echo "[!] Note: You might need to log out and log back in or run 'xfsettingsd --replace &' for changes to take full effect immediately."
+echo "XFCE4 shortcuts configured."
+echo "Note: You might need to log out and log back in or run 'xfsettingsd --replace &' for changes to take full effect immediately."
