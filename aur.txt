@@ -1,5 +1,6 @@
 beekeeper-studio-bin
 brave-bin
+librewolf-bin
 oh-my-posh
 postman-bin
 visual-studio-code-bin

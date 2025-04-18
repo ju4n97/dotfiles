@@ -6,8 +6,6 @@ blueman
 bluez
 bluez-utils
 btop
-btrfs-progs
-chromium
 copyq
 dkms
 docker
@@ -17,7 +15,6 @@ dotnet-sdk-8.0
 efibootmgr
 exo
 fastfetch
-firefox
 flameshot
 fzf
 garcon
@@ -28,14 +25,15 @@ gnome-keyring
 gst-plugin-pipewire
 gvfs
 helix
-htop
 iwd
+kitty
 less
 libpulse
+lightdm
+lightdm-gtk-greeter
 linux
 linux-firmware
 linux-headers
-ly
 mousepad
 nano
 network-manager-applet
@@ -51,6 +49,8 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+redshift
+reflector
 ristretto
 rofi
 rofi-emoji
@@ -62,7 +62,6 @@ thunar-media-tags-plugin
 thunar-volman
 tree
 tumbler
-typos
 ufw
 unzip
 vim
@@ -74,7 +73,6 @@ xclip
 xcolor
 xdg-user-dirs
 xdg-utils
-xdotool
 xfburn
 xfce4-appfinder
 xfce4-artwork
@@ -119,7 +117,6 @@ xfwm4
 xfwm4-themes
 xorg-server
 xsel
-zig
 zip
 zoxide
 zram-generator

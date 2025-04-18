@@ -33,11 +33,9 @@ yay -S --needed $(cat ~/aur.txt)
 ## Setup dotfiles
 
 ```sh
-cd ~ && sudo ./setup.sh
-```
-
-## Setup pacman hooks
-
-```sh
-cd ~ && ./setup-hooks.sh
+cd ~ && \
+chmod +x setup.sh setup-hooks.sh setup-reflector.sh && \
+sudo ./setup.sh && \
+./setup-hooks.sh && \
+./setup-reflector.sh
 ```
