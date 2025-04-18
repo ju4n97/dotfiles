@@ -37,5 +37,6 @@ cd ~ && \
 chmod +x setup.sh setup-hooks.sh setup-reflector.sh && \
 sudo ./setup.sh && \
 ./setup-hooks.sh && \
-./setup-reflector.sh
+./setup-reflector.sh && \
+./setup-shortcuts-xfce4.sh
 ```

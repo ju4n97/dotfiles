@@ -1,37 +1,37 @@
 #!/usr/bin/env bash
 
-# Ensure the script is run as root
+# Function to ensure the script is run as root
 if [ "$(id -u)" -ne 0 ]; then
     echo "This script must be run as root. Use sudo or switch to root user."
     exit 1
 fi
 
-# Determine the target user
+# Function to determine the target user
 TARGET_USER="${SUDO_USER:-$(logname 2>/dev/null)}"
 if [ -z "$TARGET_USER" ] || [ "$TARGET_USER" == "root" ]; then
     echo "Error: Could not determine target user. Run the script with sudo."
     exit 1
 fi
 
-# Check if the OS is Arch Linux or an Arch-based distro
+# Function to check if the OS is Arch Linux or an Arch-based distro
 if ! grep -Eq '^ID(_LIKE)?=arch' /etc/os-release; then
     echo "This script is designed for Arch Linux and Arch-based distributions only."
     exit 1
 fi
 
-# System update function
+# Function to system update function
 update_system() {
     echo "Updating system packages..."
     pacman -Syu --noconfirm
 }
 
-# Update user directories
+# Function to update user directories
 update_user_dirs() {
     echo "Updating XDG user directories for ${TARGET_USER}..."
     sudo -u "$TARGET_USER" xdg-user-dirs-update
 }
 
-# Enable and start system services
+# Function to enable and start system services
 enable_services() {
     local services=(
         ufw.service
@@ -45,7 +45,7 @@ enable_services() {
     done
 }
 
-# Configure and enable UFW firewall
+# Function to configure and enable UFW firewall
 configure_firewall() {
     echo "Configuring UFW firewall..."
     ufw default deny incoming
@@ -53,13 +53,13 @@ configure_firewall() {
     ufw enable
 }
 
-# Add user to Docker group
+# Function to add user to Docker group
 add_user_to_docker() {
     echo "Adding user '${TARGET_USER}' to the 'docker' group..."
     usermod -aG docker "${TARGET_USER}"
 }
 
-# Change default shell to Zsh
+# Function to change default shell to Zsh
 set_default_shell() {
     local zsh_path
     zsh_path=$(which zsh)
