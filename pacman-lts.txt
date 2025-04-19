@@ -1,5 +1,4 @@
 amd-ucode
-aspnet-runtime-8.0
 base
 base-devel
 blueman
@@ -10,8 +9,6 @@ copyq
 dkms
 docker
 docker-compose
-dotnet-runtime-8.0
-dotnet-sdk-8.0
 efibootmgr
 exo
 fastfetch
