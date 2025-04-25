@@ -16,6 +16,7 @@ efibootmgr
 exo
 fastfetch
 flameshot
+freerdp
 fzf
 garcon
 git
@@ -27,6 +28,7 @@ gst-plugins-bad
 gst-plugins-ugly
 gvfs
 helix
+inetutils
 iwd
 kitty
 less
@@ -40,6 +42,7 @@ mousepad
 nano
 network-manager-applet
 networkmanager
+nmap
 nodejs
 noto-fonts
 noto-fonts-cjk
@@ -55,6 +58,7 @@ pipewire-jack
 pipewire-pulse
 redshift
 reflector
+remmina
 ristretto
 rofi
 rofi-emoji
@@ -81,6 +85,7 @@ xclip
 xcolor
 xdg-user-dirs
 xdg-utils
+xdotool
 xfburn
 xfce4-appfinder
 xfce4-artwork
