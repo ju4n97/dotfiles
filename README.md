@@ -18,32 +18,20 @@ sudo pacman -S stow
 cd ~/dotfiles && stow .
 ```
 
-## Install packages
+## Install base packages
 
 ```sh
-sudo pacman -S --needed $(cat ~/pacman.txt)
+sudo pacman -S --needed $(cat ~/pacman.base.txt)
 ```
 
-## Install AUR packages
+## Install base AUR packages
 
 ```sh
-yay -S --needed $(cat ~/aur.txt)
+yay -S --needed $(cat ~/aur.base.txt)
 ```
 
-## Setup dotfiles
+## Setup system and optimizations
 
 ```sh
-chmod +x ~/setup.sh ~/setup-hooks.sh ~/setup-reflector.sh && \
-sudo ~/setup.sh && \
-~/setup-hooks.sh && \
-~/setup-reflector.sh && \
-~/setup-shortcuts-xfce4.sh
-```
-
-## Improve internet speed
-
-```sh
-chmod +x ~/.local/bin/improve-dns.sh && \
-~/.local/bin/improve-dns.sh && \
-~/.local/bin/enable-bbr.sh
+chmod +x ~/dotfiles.sh && ~/dotfiles.sh --reflector --fonts --swap --firewall --dns --network-optimizations --bluetooth --docker --pacman-hooks --devtools --zsh --xdg-user-dirs --shortcuts-xfce4
 ```

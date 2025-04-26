@@ -1,9 +1,0 @@
-beekeeper-studio-bin
-brave-bin
-librewolf-bin
-oh-my-posh
-postman-bin
-ttf-ms-fonts
-visual-studio-code-bin
-yay
-yay-debug
