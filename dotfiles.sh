@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPTS_DIR="$HOME/.local/bin"
 
 usage() {
-    echo "Usage: $0 [--reflector | --fonts | --swap | --firewall | --dns | --network-optimizations | --bluetooth | --docker | --pacman-hooks | --devtools | --zsh | --xdg-user-dirs | --shortcuts-xfce4]"
+    echo "Usage: $0 [--reflector | --fonts | --swap | --firewall | --dns | --network-optimizations | --bluetooth | --docker | --pacman-hooks | --devtools | --zsh | --xdg-user-dirs | --xfce4-shortcuts | xfce4-middle-button]"
     exit 1
 }
 
@@ -73,9 +73,14 @@ main() {
             bash "$SCRIPTS_DIR/setup-xdg-user-dirs.sh"
             called=1
             ;;
-        --shortcuts-xfce4)
+        --xfce4-shortcuts)
             echo "==> Setting up Xfce4 shortcuts..."
-            bash "$SCRIPTS_DIR/setup-shortcuts-xfce4.sh"
+            bash "$SCRIPTS_DIR/setup-xfce4-shortcuts.sh"
+            called=1
+            ;;
+        --xfce4-middle-button)
+            echo "==> Setting up Xfce4 middle button..."
+            bash "$SCRIPTS_DIR/setup-xfce4-middle-button.sh"
             called=1
             ;;
         *)
