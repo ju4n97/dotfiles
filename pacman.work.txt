@@ -1,0 +1,5 @@
+aspnet-runtime-8.0
+dotnet-runtime-8.0
+dotnet-sdk-8.0
+freerdp
+remmina

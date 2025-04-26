@@ -25,6 +25,7 @@ libreoffice-fresh
 mpv
 network-manager-applet
 networkmanager
+nmap
 openssh
 openvpn
 p7zip
@@ -55,6 +56,7 @@ xclip
 xcolor
 xdg-user-dirs
 xdg-utils
+xdotool
 xsel
 xz
 zip
