@@ -41,8 +41,8 @@ rofi
 rofi-emoji
 smartmontools
 tar
-tumbler
 tree
+tumbler
 tumbler
 unrar
 unzip

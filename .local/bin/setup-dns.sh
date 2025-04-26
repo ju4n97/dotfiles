@@ -12,10 +12,12 @@ FallbackDNS=1.0.0.1 8.8.4.4
 DNSStubListener=yes
 EOF
 
-    sudo systemctl restart systemd-resolved
-    sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+    echo "==> Enabling and restarting systemd-resolved..."
+    sudo systemctl enable --now systemd-resolved
 
-    echo "==> DNS servers configured to: 1.1.1.1, 8.8.8.8"
+    sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+    echo "==> DNS servers configured to: 1.1.1.1, 8.8.8.8 (systemd-resolved enabled)"
 }
 
 main() {

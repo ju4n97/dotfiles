@@ -2,7 +2,7 @@
 set -euo pipefail
 
 install_zsh() {
-    echo "==> Installing Zsh and helpers..."
+    echo "==> Installing zsh..."
     sudo pacman -S --needed --noconfirm zsh
 }
 
