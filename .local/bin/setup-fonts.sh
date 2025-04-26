@@ -14,7 +14,6 @@ pacman_fonts=(
     ttf-font-awesome
     ttf-hack-nerd
     ttf-inconsolata
-    ttf-iosevka-nerd
     ttf-jetbrains-mono-nerd
     ttf-liberation
     ttf-nerd-fonts-symbols
