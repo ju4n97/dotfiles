@@ -83,3 +83,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # go
 export GO_INSTALL="$HOME/go"
 export PATH="$GO_INSTALL/bin:$PATH"
+
+# dotnet
+export DOTNET_INSTALL="$HOME/.dotnet"
+export PATH="$DOTNET_INSTALL/tools:$PATH"
