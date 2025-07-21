@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPTS_DIR="$HOME/.local/bin"
 
 usage() {
-    echo "Usage: $0 [--reflector | --fonts | --swap | --firewall | --dns | --network-optimizations | --bluetooth | --docker | --pacman-hooks | --devtools | --zsh | --xdg-user-dirs | --xfce4-shortcuts | xfce4-middle-button]"
+    echo "Usage: $0 [--reflector | --fonts | --swap | --firewall | --dns | --network-optimizations | --bluetooth | --docker | --pacman-hooks | --devtools | --zsh | --xdg-user-dirs | --xfce4-shortcuts | --xfce4-middle-button | --wacom]"
     exit 1
 }
 
@@ -81,6 +81,11 @@ main() {
         --xfce4-middle-button)
             echo "==> Setting up Xfce4 middle button..."
             bash "$SCRIPTS_DIR/setup-xfce4-middle-button.sh"
+            called=1
+            ;;
+        --wacom)
+            echo "==> Running Wacom setup..."
+            bash "$SCRIPTS_DIR/setup-wacom.sh"
             called=1
             ;;
         *)

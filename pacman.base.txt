@@ -59,6 +59,7 @@ xdg-utils
 xdotool
 xsel
 xz
+xf86-input-wacom
 zip
 zoxide
 zram-generator

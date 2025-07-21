@@ -61,7 +61,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 setopt aliases
 alias ls='ls --color'
 alias la='ls --color -la'
-
 function expand-alias() {
   zle _expand_alias
   zle self-insert
@@ -91,3 +90,9 @@ export PATH="$CARGO_INSTALL/bin:$PATH"
 # dotnet
 export DOTNET_INSTALL="$HOME/.dotnet"
 export PATH="$DOTNET_INSTALL/tools:$PATH"
+
+# fcitx
+export GTK_IM_MODULE='fcitx'
+export QT_IM_MODULE='fcitx'
+export SDL_IM_MODULE='fcitx'
+export XMODIFIERS='@im=fcitx'

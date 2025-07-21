@@ -1,0 +1,10 @@
+[Unit]
+Description=Apply Wacom mapping
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=$HOME/dotfiles.sh --wacom
+
+[Install]
+WantedBy=default.target
