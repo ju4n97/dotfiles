@@ -4,7 +4,7 @@ After=graphical.target
 
 [Service]
 Type=oneshot
-ExecStart=$HOME/dotfiles.sh --wacom
+ExecStart=/home/juan/dotfiles.sh --wacom
 
 [Install]
 WantedBy=default.target

@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPTS_DIR="$HOME/.local/bin"
 
 usage() {
-    echo "Usage: $0 [--reflector | --fonts | --swap | --firewall | --dns | --network-optimizations | --bluetooth | --docker | --pacman-hooks | --devtools | --zsh | --xdg-user-dirs | --xfce4-shortcuts | --xfce4-middle-button | --wacom]"
+    echo "Usage: $0 [--reflector | --fonts | --swap | --firewall | --bluetooth | --docker | --pacman-hooks | --devtools | --zsh | --xdg-user-dirs | --xfce4-shortcuts | --xfce4-middle-button | --wacom]"
     exit 1
 }
 
@@ -32,17 +32,7 @@ main() {
             echo "==> Running firewall setup..."
             bash "$SCRIPTS_DIR/setup-firewall.sh"
             called=1
-            ;;
-        --dns)
-            echo "==> Setting up DNS..."
-            bash "$SCRIPTS_DIR/setup-dns.sh"
-            called=1
-            ;;
-        --network-optimizations)
-            echo "==> Setting up network optimizations..."
-            bash "$SCRIPTS_DIR/setup-network-optimizations.sh"
-            called=1
-            ;;
+            ;;  
         --bluetooth)
             echo "==> Running Bluetooth setup..."
             bash "$SCRIPTS_DIR/setup-bluetooth.sh"
