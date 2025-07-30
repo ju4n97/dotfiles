@@ -11,8 +11,7 @@ pacman_pkgs=(
     npm
 )
 
-aur_pkgs=(
-    beekeeper-studio-bin
+aur_pkgs=(    
     postman-bin
     visual-studio-code-bin
 )
