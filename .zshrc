@@ -61,6 +61,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 setopt aliases
 alias ls='ls --color'
 alias la='ls --color -la'
+alias task='go-task'
 function expand-alias() {
   zle _expand_alias
   zle self-insert
@@ -90,6 +91,10 @@ export PATH="$CARGO_INSTALL/bin:$PATH"
 # dotnet
 export DOTNET_INSTALL="$HOME/.dotnet"
 export PATH="$DOTNET_INSTALL/tools:$PATH"
+
+# pipx
+export PIPX_HOME="$HOME/.local/share/pipx/venvs"
+export PATH="$HOME/.local/bin:$PATH"
 
 # fcitx
 export GTK_IM_MODULE='fcitx'
