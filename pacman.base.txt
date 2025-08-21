@@ -5,6 +5,8 @@ bind
 bzip2
 copyq
 dkms
+dosfstools
+exfat-utils
 fastfetch
 fd
 ffmpeg
