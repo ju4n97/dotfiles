@@ -51,6 +51,7 @@ networkmanager
 ninja        
 nmap
 nvidia        
+nvidia-container-toolkit
 nvidia-settings 
 nvidia-utils  
 openssh

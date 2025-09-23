@@ -69,6 +69,15 @@ function expand-alias() {
 zle -N expand-alias
 bindkey '^@' expand-alias
 
+# Aliases - Open WebUI
+alias owui='xdg-open http://localhost:8080'
+alias owui-install='docker pull ghcr.io/open-webui/open-webui:main'
+alias owui-run='docker run -d --network host -e OLLAMA_BASE_URL=http://127.0.0.1:11434 -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main'
+alias owui-update='docker stop open-webui && docker rm open-webui && docker pull ghcr.io/open-webui/open-webui:main && owui-run'
+alias owui-stop='docker stop open-webui'
+alias owui-remove='docker rm open-webui'
+alias owui-logs='docker logs open-webui'
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
