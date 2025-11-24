@@ -62,6 +62,7 @@ setopt aliases
 alias ls='ls --color'
 alias la='ls --color -la'
 alias task='go-task'
+alias dumpfiles='$HOME/.local/bin/dumpfiles.sh'
 function expand-alias() {
   zle _expand_alias
   zle self-insert

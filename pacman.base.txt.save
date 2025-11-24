@@ -1,7 +1,10 @@
 amd-ucode
+autoconf     
+automake     
 base
 base-devel
 bind
+bzip2
 clang        
 cmake        
 copyq
@@ -16,7 +19,8 @@ ffmpeg
 flameshot
 fontconfig
 freetype2
-fzf      
+fzf
+gcc          
 glmark2
 gnome-keyring
 gst-libav
@@ -29,11 +33,16 @@ gst-plugins-ugly
 gst-plugins-ugly 
 gvfs
 gvfs-mtp
+gzip
 inetutils
 iwd
 jq
 less
 libmtp
+libreoffice-fresh
+libtool
+linux-firmware
+make         
 meson        
 mpv
 mtpfs
@@ -41,6 +50,7 @@ network-manager-applet
 networkmanager
 ninja        
 nmap
+uuddoOxvidia        
 nvidia-container-toolkit
 nvidia-settings 
 nvidia-utils  
@@ -48,6 +58,12 @@ openssh
 openssl
 openvpn
 p7zip
+pavucontrol
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+pkgconf      
 proton-vpn-gtk-app
 redshift
 ripgrep
@@ -55,6 +71,8 @@ ristretto
 rofi
 rofi-emoji
 smartmontools
+sqlite
+tar
 thunar-volman
 tree
 tumbler
@@ -67,6 +85,7 @@ vulkan-icd-loader
 vulkan-tools
 wget
 wireless_tools
+wireplumber
 xarchiver
 xclip
 xcolor
@@ -76,6 +95,8 @@ xdotool
 xf86-input-wacom
 xorg-xrandr
 xsel
+xz
 zip
+zlib
 zoxide
 zram-generator
