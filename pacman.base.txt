@@ -11,6 +11,8 @@ ffmpeg
 flameshot
 fontconfig
 freetype2
+fuse2
+fuse3
 fzf      
 gnome-keyring
 gst-plugin-pipewire

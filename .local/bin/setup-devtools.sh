@@ -5,11 +5,17 @@ pacman_pkgs=(
     git-filter-repo
     github-cli
     go
+    go-task
     helix
     make
     nodejs
     npm
     rustup
+    python
+    python-pip
+    python-pipx
+    uv
+    buf
 )
 
 aur_pkgs=(    
