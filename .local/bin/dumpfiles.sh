@@ -18,6 +18,7 @@ PRUNES=()
 for pat in "${IGNORES[@]}"; do
   PRUNES+=( -name "$pat" -o -path "*/$pat/*" -o )
 done
+
 # drop trailing -o if any
 if (( ${#PRUNES[@]} > 0 )); then unset 'PRUNES[${#PRUNES[@]}-1]'; fi
 

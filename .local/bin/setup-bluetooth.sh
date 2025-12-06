@@ -9,7 +9,8 @@ bluetooth_packages=(
 
 enable_bluetooth_services() {
     echo "==> Enabling Bluetooth services..."
-    sudo systemctl enable --now bluetooth.service
+    sudo systemctl enable bluetooth.service
+    sudo systemctl start bluetooth.service
 }
 
 install_bluetooth_packages() {

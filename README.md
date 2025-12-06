@@ -33,5 +33,5 @@ yay -S --needed $(cat ~/aur.base.txt)
 ## Setup
 
 ```sh
-chmod +x ~/dotfiles.sh && ~/dotfiles.sh --reflector --fonts --swap --firewall --bluetooth --docker --pacman-hooks --devtools --zsh --xdg-user-dirs --xfce4-shortcuts --xfce4-middle-button --wacom
+chmod +x ~/dotfiles.sh && ~/dotfiles.sh --reflector --earlyoom --fonts --firewall --bluetooth --docker --devtools --zsh --xdg-user-dirs --xfce4-shortcuts --xfce4-middle-button --wacom
 ```

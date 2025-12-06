@@ -41,6 +41,7 @@ install_aur_fonts() {
             echo "!! 'yay' not found. Please install an AUR helper before proceeding."
             exit 1
         fi
+
         echo "==> Installing fonts from AUR..."
         yay -S --needed --noconfirm "${aur_fonts[@]}"
     fi
@@ -48,7 +49,7 @@ install_aur_fonts() {
 
 refresh_font_cache() {
     echo "==> Refreshing font cache..."
-    fc-cache -fv >/dev/null
+    fc-cache -f >/dev/null
 }
 
 main() {

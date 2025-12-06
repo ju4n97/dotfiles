@@ -4,6 +4,7 @@ set -euo pipefail
 docker_packages=(
     docker
     docker-compose
+    docker-buildx
 )
 
 install_docker_packages() {
@@ -13,9 +14,15 @@ install_docker_packages() {
 
 enable_docker_service() {
     echo "==> Enabling Docker service..."
-    sudo systemctl enable --now docker.service
-    sudo usermod -aG docker "$USER"
-    echo "==> Added $USER to 'docker' group. You may need to re-login."
+    sudo systemctl enable docker.service
+    sudo systemctl start docker.service
+
+    if ! id -nG "$USER" | grep -qw docker; then
+        sudo usermod -aG docker "$USER"
+        echo "==> Added $USER to 'docker' group. Re-login required."
+    else
+        echo "==> $USER already in 'docker' group."
+    fi
 }
 
 main() {

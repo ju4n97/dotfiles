@@ -4,8 +4,38 @@ set -euo pipefail
 SCRIPTS_DIR="$HOME/.local/bin"
 
 usage() {
-    echo "Usage: $0 [--reflector | --fonts | --swap | --firewall | --bluetooth | --docker | --pacman-hooks | --devtools | --zsh | --xdg-user-dirs | --xfce4-shortcuts | --xfce4-middle-button | --wacom]"
+    cat <<EOF
+Usage: $0 [options]
+
+Options:
+  --reflector
+  --earlyoom
+  --fonts
+  --swap
+  --firewall
+  --bluetooth
+  --docker
+  --pacman-hooks
+  --devtools
+  --zsh
+  --xdg-user-dirs
+  --xfce4-shortcuts
+  --xfce4-middle-button
+  --wacom
+EOF
     exit 1
+}
+
+run_script() {
+    local script="$1"
+    local title="$2"
+
+    echo "==> $title"
+    if [[ ! -f "$SCRIPTS_DIR/$script" ]]; then
+        echo "ERROR: Missing script: $SCRIPTS_DIR/$script"
+        exit 1
+    fi
+    bash "$SCRIPTS_DIR/$script"
 }
 
 main() {
@@ -13,80 +43,57 @@ main() {
 
     for arg in "$@"; do
         case "$arg" in
-        --reflector)
-            echo "==> Running reflector setup..."
-            bash "$SCRIPTS_DIR/setup-reflector.sh"
-            called=1
-            ;;
-        --fonts)
-            echo "==> Running font setup..."
-            bash "$SCRIPTS_DIR/setup-fonts.sh"
-            called=1
-            ;;
-        --swap)
-            echo "==> Running swap + OOM configuration..."
-            bash "$SCRIPTS_DIR/setup-swap-oom.sh"
-            called=1
-            ;;
-        --firewall)
-            echo "==> Running firewall setup..."
-            bash "$SCRIPTS_DIR/setup-firewall.sh"
-            called=1
-            ;;  
-        --bluetooth)
-            echo "==> Running Bluetooth setup..."
-            bash "$SCRIPTS_DIR/setup-bluetooth.sh"
-            called=1
-            ;;
-        --docker)
-            echo "==> Running Docker setup..."
-            bash "$SCRIPTS_DIR/setup-docker.sh"
-            called=1
-            ;;
-        --pacman-hooks)
-            echo "==> Setting up package list backup hook..."
-            bash "$SCRIPTS_DIR/setup-pacman-hooks.sh"
-            called=1
-            ;;
-        --devtools)
-            echo "==> Running devtools setup..."
-            bash "$SCRIPTS_DIR/setup-devtools.sh"
-            called=1
-            ;;
-        --zsh)
-            echo "==> Running Zsh setup..."
-            bash "$SCRIPTS_DIR/setup-zsh.sh"
-            called=1
-            ;;
-        --xdg-user-dirs)
-            echo "==> Setting up xdg-user-dirs..."
-            bash "$SCRIPTS_DIR/setup-xdg-user-dirs.sh"
-            called=1
-            ;;
-        --xfce4-shortcuts)
-            echo "==> Setting up Xfce4 shortcuts..."
-            bash "$SCRIPTS_DIR/setup-xfce4-shortcuts.sh"
-            called=1
-            ;;
-        --xfce4-middle-button)
-            echo "==> Setting up Xfce4 middle button..."
-            bash "$SCRIPTS_DIR/setup-xfce4-middle-button.sh"
-            called=1
-            ;;
-        --wacom)
-            echo "==> Running Wacom setup..."
-            bash "$SCRIPTS_DIR/setup-wacom.sh"
-            called=1
-            ;;
-        *)
-            usage
-            ;;
+            --reflector)
+                run_script "setup-reflector.sh" "Running reflector setup..."
+                ;;
+            --earlyoom)
+                run_script "setup-earlyoom.sh" "Running earlyoom setup..."
+                ;;
+            --fonts)
+                run_script "setup-fonts.sh" "Running font setup..."
+                ;;
+            --swap)
+                run_script "setup-swap-oom.sh" "Running swap + OOM configuration..."
+                ;;
+            --firewall)
+                run_script "setup-firewall.sh" "Running firewall setup..."
+                ;;
+            --bluetooth)
+                run_script "setup-bluetooth.sh" "Running Bluetooth setup..."
+                ;;
+            --docker)
+                run_script "setup-docker.sh" "Running Docker setup..."
+                ;;
+            --pacman-hooks)
+                run_script "setup-pacman-hooks.sh" "Setting up pacman hooks..."
+                ;;
+            --devtools)
+                run_script "setup-devtools.sh" "Installing devtools..."
+                ;;
+            --zsh)
+                run_script "setup-zsh.sh" "Running Zsh setup..."
+                ;;
+            --xdg-user-dirs)
+                run_script "setup-xdg-user-dirs.sh" "Configuring XDG user directories..."
+                ;;
+            --xfce4-shortcuts)
+                run_script "setup-xfce4-shortcuts.sh" "Applying Xfce4 shortcuts..."
+                ;;
+            --xfce4-middle-button)
+                run_script "setup-xfce4-middle-button.sh" "Configuring Xfce4 middle-button behavior..."
+                ;;
+            --wacom)
+                run_script "setup-wacom.sh" "Running Wacom setup..."
+                ;;
+            *)
+                usage
+                ;;
         esac
+
+        called=1
     done
 
-    if [[ $called -eq 0 ]]; then
-        usage
-    fi
+    [[ $called -eq 0 ]] && usage
 }
 
 main "$@"

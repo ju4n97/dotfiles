@@ -3,13 +3,19 @@ set -euo pipefail
 
 map_wacom_devices() {
   echo "==> Mapping Wacom devices to primary monitor..."
-  geometry=$(xrandr | awk '/ primary / {print $4}') || { echo "No primary monitor."; exit 1; }
+
+  monitor=$(xrandr | awk '/ primary / {print $1}') || {
+    echo "No primary monitor detected."
+    exit 1
+  }
+
   readarray -t devices < <(xsetwacom list devices | awk -F'\t' '{gsub(/[ \t]+$/, "", $1); print $1}')
 
   for device in "${devices[@]}"; do
-    xsetwacom set "$device" MapToOutput "$geometry"
+    xsetwacom set "$device" MapToOutput "$monitor"
   done
-  echo "==> Wacom devices mapped to $geometry."
+
+  echo "==> Wacom devices mapped to $monitor."
 }
 
 enable_wacom_service() {
@@ -25,7 +31,7 @@ enable_wacom_service() {
 }
 
 main() {
-  map_wacom_devices  
+  map_wacom_devices
   enable_wacom_service
   echo "==> Wacom mapping setup complete and persistent across reboots."
 }

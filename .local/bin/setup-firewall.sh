@@ -8,9 +8,17 @@ install_firewall() {
 
 configure_firewall() {
     echo "==> Enabling basic firewall rules..."
+    
     sudo ufw default deny incoming
     sudo ufw default allow outgoing
-    sudo ufw enable
+
+    if ! sudo ufw status | grep -q "Status: active"; then
+        sudo ufw --force enable
+        echo "==> Firewall enabled."
+    else
+        echo "==> Firewall already enabled."
+    fi
+
     sudo systemctl enable --now ufw.service
 }
 
