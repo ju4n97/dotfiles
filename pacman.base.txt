@@ -8,7 +8,6 @@ exfat-utils
 fastfetch
 fd
 ffmpeg
-flameshot
 fontconfig
 freetype2
 fuse2
@@ -18,6 +17,8 @@ gnome-keyring
 gst-plugin-pipewire
 gst-plugins-base 
 gst-plugins-good 
+gst-plugins-bad
+gst-libav
 gvfs
 gvfs-mtp
 jq

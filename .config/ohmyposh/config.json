@@ -1,88 +1,89 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "version": 3,
   "palette": {
+    "background": "#282c34",
     "black": "#282c34",
-    "red": "#e06c75",
-    "green": "#98c379",
-    "yellow": "#e5c07b",
     "blue": "#61afef",
-    "magenta": "#c678dd",
     "cyan": "#56b6c2",
-    "white": "#dcdfe4",
     "foreground": "#dcdfe4",
-    "background": "#282c34"
+    "green": "#98c379",
+    "magenta": "#c678dd",
+    "red": "#e06c75",
+    "white": "#dcdfe4",
+    "yellow": "#e5c07b"
+  },
+  "transient_prompt": {
+    "template": "> ",
+    "foreground": "p:magenta",
+    "foreground_templates": [
+      "{{ if gt .Code 0 }}p:red{{ end }}"
+    ]
   },
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
-      "newline": false,
       "segments": [
         {
-          "type": "text",
-          "style": "plain",
+          "template": "\u256d\u2500",
           "foreground": "p:foreground",
-          "template": "\u256d\u2500"
+          "type": "text",
+          "style": "plain"
         },
         {
-          "type": "session",
-          "style": "plain",
+          "template": "{{ .UserName }}@{{ .HostName }}:",
           "foreground": "p:yellow",
-          "template": "{{ .UserName }}@{{ .HostName }}:"
+          "type": "session",
+          "style": "plain"
         },
         {
-          "type": "path",
-          "style": "plain",
-          "foreground": "p:blue",
-          "properties": {
+          "options": {
             "style": "full"
           },
-          "template": "{{ .Path }}"
+          "template": "{{ .Path }}",
+          "foreground": "p:blue",
+          "type": "path",
+          "style": "plain"
         },
         {
-          "type": "git",
-          "style": "plain",
-          "foreground": "p:foreground",
-          "properties": {
+          "options": {
             "branch_icon": "",
-            "fetch_status": true,
             "fetch_stash_count": true,
+            "fetch_status": true,
             "fetch_worktree_count": true
           },
-          "template": " <p:cyan>git</>:({{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}<p:magenta>{{ .HEAD }}</>{{ else }}<p:green>{{ .HEAD }}</>{{ end }}{{ if (gt .Ahead 0)}}<p:cyan>{{ .BranchStatus }}</>{{ end }}{{ if (gt .Behind 0)}}<p:cyan>{{ .BranchStatus }}</>{{ end }}{{ if .Staging.Changed }} <p:green>{{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }} <p:red>{{ .Working.String }}</>{{ end }})"
+          "template": " <p:cyan>git</>:({{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}<p:magenta>{{ .HEAD }}</>{{ else }}<p:green>{{ .HEAD }}</>{{ end }}{{ if (gt .Ahead 0)}}<p:cyan>{{ .BranchStatus }}</>{{ end }}{{ if (gt .Behind 0)}}<p:cyan>{{ .BranchStatus }}</>{{ end }}{{ if .Staging.Changed }} <p:green>{{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }} <p:red>{{ .Working.String }}</>{{ end }})",
+          "foreground": "p:foreground",
+          "type": "git",
+          "style": "plain"
         }
-      ],
-      "type": "prompt"
+      ]
     },
     {
+      "type": "prompt",
       "alignment": "left",
-      "newline": true,
       "segments": [
         {
-          "type": "text",
-          "style": "plain",
+          "template": "\u2570\u2500",
           "foreground": "p:foreground",
-          "template": "\u2570\u2500"
+          "type": "text",
+          "style": "plain"
         },
         {
-          "type": "status",
-          "style": "plain",
-          "foreground": "p:foreground",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}p:red{{ else }}p:green{{ end }}"
-          ],
-          "properties": {
+          "options": {
             "always_enabled": true
           },
-          "template": " ({{ .Code }}) > "
+          "template": " ({{ .Code }}) > ",
+          "foreground": "p:foreground",
+          "type": "status",
+          "style": "plain",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}p:red{{ else }}p:green{{ end }}"
+          ]
         }
       ],
-      "type": "prompt"
+      "newline": true
     }
   ],
-  "transient_prompt": {
-    "foreground": "p:magenta",
-    "foreground_templates": ["{{ if gt .Code 0 }}p:red{{ end }}"],
-    "template": "> "
-  }
+  "version": 4
 }
