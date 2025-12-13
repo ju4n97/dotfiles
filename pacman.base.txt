@@ -14,11 +14,11 @@ fuse2
 fuse3
 fzf      
 gnome-keyring
-gst-plugin-pipewire
-gst-plugins-base 
-gst-plugins-good 
-gst-plugins-bad
 gst-libav
+gst-plugin-pipewire
+gst-plugins-bad
+gst-plugins-base 
+gst-plugins-good
 gvfs
 gvfs-mtp
 jq
@@ -43,6 +43,7 @@ ristretto
 rofi
 rofi-emoji
 smartmontools
+speech-dispatcher
 thunar-volman
 tree
 tumbler
