@@ -21,6 +21,7 @@ Options:
   --xdg-user-dirs
   --xfce4-shortcuts
   --xfce4-middle-button
+  --steam
   --wacom
 EOF
     exit 1
@@ -81,6 +82,9 @@ main() {
                 ;;
             --xfce4-middle-button)
                 run_script "setup-xfce4-middle-button.sh" "Configuring Xfce4 middle-button behavior..."
+                ;;
+            --steam)
+                run_script "setup-steam.sh" "Running Steam setup..."
                 ;;
             --wacom)
                 run_script "setup-wacom.sh" "Running Wacom setup..."
