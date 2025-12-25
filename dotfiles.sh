@@ -13,6 +13,7 @@ Options:
   --fonts
   --swap
   --firewall
+  --dns
   --bluetooth
   --docker
   --pacman-hooks
@@ -58,6 +59,9 @@ main() {
                 ;;
             --firewall)
                 run_script "setup-firewall.sh" "Running firewall setup..."
+                ;;
+            --dns)
+                run_script "setup-dns.sh" "Running DNS setup..."
                 ;;
             --bluetooth)
                 run_script "setup-bluetooth.sh" "Running Bluetooth setup..."
