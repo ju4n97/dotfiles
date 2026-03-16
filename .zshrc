@@ -1,3 +1,15 @@
+# ================================================================
+# PATH
+# ================================================================
+path+=(
+  "$HOME/.local/bin" 
+  "$HOME/.bun/bin" 
+  "$HOME/.cargo/bin" 
+  "$HOME/.dotnet/tools"
+  "$HOME/go/bin" 
+)
+typeset -U path
+
 eval "$(oh-my-posh init zsh --config "$HOME/.config/ohmyposh/config.json")"
 
 # ================================================================
@@ -75,18 +87,6 @@ alias dumpfiles="$HOME/.local/bin/dumpfiles.sh"
 expand-alias() { zle _expand_alias; }
 zle -N expand-alias
 bindkey '^@' expand-alias
-
-# ================================================================
-# PATH
-# ================================================================
-path+=(
-  "$HOME/.local/bin" 
-  "$HOME/.bun/bin" 
-  "$HOME/.cargo/bin" 
-  "$HOME/.dotnet/tools"
-  "$HOME/go/bin" 
-)
-typeset -U path
 
 # ================================================================
 # Integrations

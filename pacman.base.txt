@@ -17,7 +17,6 @@ freetype2
 fuse2
 fuse3
 fzf
-gnome-keyring
 gptfdisk
 gst-libav
 gst-plugin-pipewire
@@ -34,7 +33,6 @@ man-db
 man-pages
 meson
 mpv
-network-manager-applet
 networkmanager
 ninja
 ntfs-3g
@@ -52,9 +50,7 @@ ripgrep
 ristretto
 smartmontools
 speech-dispatcher
-thunar-volman
 tree
-tumbler
 udisks2
 unrar
 unzip
@@ -66,11 +62,8 @@ vulkan-tools
 wget
 wl-clipboard
 xarchiver
-xclip
-xcolor
 xdg-user-dirs
 xdg-utils
 xfsprogs
-xsel
 zip
 zoxide
