@@ -7,6 +7,7 @@ path+=(
   "$HOME/.cargo/bin" 
   "$HOME/.dotnet/tools"
   "$HOME/go/bin" 
+  "$HOME/.local/share/gem/ruby/3.4.0/bin"
 )
 typeset -U path
 
