@@ -1,0 +1,14 @@
+sway
+waybar
+foot
+mako
+swaybg
+swaylock
+swayidle
+wl-clipboard
+xdg-desktop-portal-wlr
+xdg-desktop-portal
+playerctl
+brightnessctl
+wlr-randr
+way-displays

@@ -23,6 +23,9 @@ Options:
   --xfce4-shortcuts
   --xfce4-middle-button
   --steam
+  --nvidia
+  --ly
+  --wayland
   --wacom
 EOF
     exit 1
@@ -90,6 +93,15 @@ main() {
             --steam)
                 run_script "setup-steam.sh" "Running Steam setup..."
                 ;;
+            --nvidia)
+                run_script "setup-nvidia.sh" "Configuring NVIDIA for Wayland..."
+                ;;
+            --ly)
+                run_script "setup-ly.sh" "Configuring ly display manager..."
+                ;;
+            --wayland)
+                run_script "setup-wayland.sh" "Configuring Wayland environment..."
+                ;;            
             --wacom)
                 run_script "setup-wacom.sh" "Running Wacom setup..."
                 ;;

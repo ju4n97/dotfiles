@@ -14,6 +14,14 @@ typeset -U path
 eval "$(oh-my-posh init zsh --config "$HOME/.config/ohmyposh/config.json")"
 
 # ================================================================
+# Input method
+# ================================================================
+export INPUT_METHOD=fcitx5
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS=@im=fcitx5
+
+# ================================================================
 # Zinit bootstrap
 # ================================================================
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"

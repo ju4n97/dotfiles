@@ -1,0 +1,97 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: #0a0a0a;
+  color: #00ff41;
+  border-bottom: 1px solid #00ff41;
+}
+
+#workspaces button {
+  padding: 0 10px;
+  color: #005f1a;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 0.1s ease;
+}
+
+#workspaces button.focused {
+  color: #00ff41;
+  border-bottom: 2px solid #00ff41;
+}
+
+#workspaces button.urgent {
+  color: #ff5555;
+  border-bottom: 2px solid #ff5555;
+}
+
+#workspaces button:hover {
+  color: #00ff41;
+  background: #0f1f0f;
+}
+
+#window {
+  color: #007a1f;
+  font-style: normal;
+}
+
+#clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray {
+  padding: 0 10px;
+  color: #00cc33;
+}
+
+#clock {
+  color: #00ff41;
+  font-weight: bold;
+}
+
+#cpu {
+  color: #00cc33;
+}
+#memory {
+  color: #00aa2a;
+}
+#temperature {
+  color: #00cc33;
+}
+#temperature.critical {
+  color: #ff5555;
+}
+#network {
+  color: #00cc33;
+}
+#pulseaudio {
+  color: #00aa2a;
+}
+#pulseaudio.muted {
+  color: #003d0f;
+}
+
+#mode {
+  background-color: #00ff41;
+  color: #0a0a0a;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  to {
+    color: #ff5555;
+    background-color: #0a0a0a;
+  }
+  from {
+    color: #0a0a0a;
+    background-color: #ff5555;
+  }
+}

@@ -1,0 +1,10 @@
+fd 
+ffmpeg 
+fzf 
+imagemagick
+jq 
+p7zip 
+poppler 
+ripgrep 
+yazi
+zoxide 

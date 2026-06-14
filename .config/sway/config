@@ -1,0 +1,191 @@
+# Variables
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $term alacritty
+set $menu rofi -show drun
+
+# Named workspaces
+set $ws1 "1:web"
+set $ws2 "2:term"
+set $ws3 "3:code"
+set $ws4 "4:files"
+set $ws5 "5:media"
+set $ws6 "6:misc-0"
+set $ws7 "7:misc-1"
+set $ws8 "8:misc-2"
+set $ws9 "9:misc-3"
+set $ws0 "10:misc-4"
+
+output DP-1  mode 1920x1080@60Hz  position 0,0
+output DP-2  mode 1920x1080@240Hz position 1920,0
+
+# Workspace to output assignment
+# Update connector names after checking `swaymsg -t get_outputs`
+workspace $ws6 output DP-1
+workspace $ws7 output DP-1
+workspace $ws1 output DP-2
+workspace $ws2 output DP-2
+workspace $ws3 output DP-2
+workspace $ws4 output DP-2
+workspace $ws5 output DP-2
+
+# Autostart
+exec way-displays
+exec mako
+exec swaybg -i ~/Pictures/nasa-CpHNKNRwXps-unsplash.jpg -m fill
+exec gnome-keyring-daemon --start --components=secrets,ssh
+exec waybar
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec QT_QPA_PLATFORM=wayland copyq
+
+# Input
+input type:keyboard {
+    xkb_layout latam
+    repeat_delay 300
+    repeat_rate 50
+}
+
+input type:pointer {
+    accel_profile flat
+    pointer_accel 0
+    middle_emulation enabled
+}
+
+# Appearance
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 6
+gaps outer 4
+font pango:Inter Variable Medium 10
+
+# class                 border    bg        text      indicator  child_border
+client.focused          #00ff41   #0a0a0a   #00ff41   #00ff41    #00ff41
+client.unfocused        #003d0f   #0a0a0a   #005f1a   #003d0f    #003d0f
+client.focused_inactive #004d14   #0a0a0a   #007a1f   #004d14    #004d14
+client.urgent           #ff5555   #0a0a0a   #ff5555   #ff5555    #ff5555
+
+# Key bindings: core
+bindsym $mod+Return       exec $term
+bindsym $mod+e            exec alacritty -e yazi
+bindsym $mod+d            exec $menu
+bindsym $mod+shift+period exec rofi -show emoji
+bindsym $mod+q            kill
+bindsym $mod+shift+r      reload
+bindsym $mod+shift+e      exec swaynag -t warning \
+    -m 'Exit sway?' \
+    -B 'Yes' 'swaymsg exit'
+
+# Key bindings: screenshots
+bindsym print exec QT_QPA_PLATFORM=wayland flameshot gui --clipboard
+
+# Key bindings: focus (vim)
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+# Key bindings: move (vim)
+bindsym $mod+shift+$left  move left
+bindsym $mod+shift+$down  move down
+bindsym $mod+shift+$up    move up
+bindsym $mod+shift+$right move right
+
+# Key bindings: split direction
+bindsym $mod+ctrl+b splitv
+bindsym $mod+ctrl+v splith
+
+# Key bindings: layout
+bindsym $mod+s           layout stacking
+bindsym $mod+t           layout tabbed
+bindsym $mod+shift+t     layout toggle split
+bindsym $mod+f           fullscreen toggle
+bindsym $mod+shift+space floating toggle
+bindsym $mod+space       focus mode_toggle
+bindsym $mod+a           focus parent
+
+# Key bindings: workspaces
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+
+bindsym $mod+shift+1 move container to workspace $ws1
+bindsym $mod+shift+2 move container to workspace $ws2
+bindsym $mod+shift+3 move container to workspace $ws3
+bindsym $mod+shift+4 move container to workspace $ws4
+bindsym $mod+shift+5 move container to workspace $ws5
+bindsym $mod+shift+6 move container to workspace $ws6
+bindsym $mod+shift+7 move container to workspace $ws7
+
+# Key bindings: monitor focus
+bindsym $mod+ctrl+$left  focus output left
+bindsym $mod+ctrl+$right focus output right
+
+bindsym $mod+ctrl+shift+$left  move container to output left
+bindsym $mod+ctrl+shift+$right move container to output right
+
+# Key bindings: scratchpad
+bindsym $mod+shift+minus move scratchpad
+bindsym $mod+minus       scratchpad show
+
+# Key bindings: resize mode
+mode "resize" {
+    bindsym $left  resize shrink width  50px
+    bindsym $down  resize grow   height 50px
+    bindsym $up    resize shrink height 50px
+    bindsym $right resize grow   width  50px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Key bindings: media & system
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioPlay        exec playerctl play-pause
+bindsym XF86AudioNext        exec playerctl next
+bindsym XF86AudioPrev        exec playerctl previous
+
+# Key bindings: rofi
+bindsym $mod+ctrl+shift+e exec rofi -modi emoji -show emoji
+bindsym $mod+ctrl+shift+x exec sh -c "find ~/Projects/Github -mindepth 2 -maxdepth 2 -type d | rofi -dmenu -i | xargs -r -I{} code {}"
+
+# App assignments
+assign [app_id="firefox"]          $ws1
+assign [app_id="brave"]            $ws1
+assign [app_id="chromium"]         $ws1
+assign [app_id="alacritty"]        $ws2
+assign [app_id="foot"]             $ws2
+assign [app_id="code"]             $ws3
+assign [app_id="zed"]              $ws3
+assign [app_id="helix"]            $ws3
+assign [app_id="nemo"]             $ws4
+assign [app_id="mpv"]              $ws5
+
+# Floating rules
+for_window [app_id="pavucontrol"]            floating enable
+for_window [app_id="nemo"]                   floating enable, resize set 1200 800
+for_window [app_id="nm-connection-editor"]   floating enable
+for_window [window_role="dialog"]            floating enable
+for_window [window_role="pop-up"]            floating enable
+for_window [window_type="dialog"]            floating enable
+
+# Mouse
+floating_modifier $mod normal
+
+# Idle & lock
+exec swayidle -w \
+    timeout 300  'swaylock -f -c 000000' \
+    timeout 600  'swaymsg "output * power off"' \
+    resume       'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+include /etc/sway/config.d/*
