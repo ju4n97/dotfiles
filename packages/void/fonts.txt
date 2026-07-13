@@ -1,0 +1,9 @@
+font-awesome
+dejavu-fonts-ttf
+freefont-ttf
+liberation-fonts-ttf
+noto-fonts-ttf
+noto-fonts-cjk
+noto-fonts-emoji
+nerd-fonts-symbols-ttf
+nerd-fonts
