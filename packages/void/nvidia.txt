@@ -1,5 +1,6 @@
 nvidia
-nvidia-libs
-nvidia-gtklibs
 nvidia-dkms
 nvidia-firmware
+nvidia-gtklibs
+nvidia-libs
+nvidia-vaapi-driver
