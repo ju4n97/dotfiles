@@ -1,0 +1,7 @@
+cmake
+gcc
+gdb
+git
+make
+ninja
+pkgconf

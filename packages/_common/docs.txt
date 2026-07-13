@@ -1,0 +1,4 @@
+man-db
+man-pages
+tldr
+xdg-utils

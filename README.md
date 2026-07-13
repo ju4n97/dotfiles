@@ -1,37 +1,63 @@
-# Dotfiles
+# dotfiles
 
-This dotfiles are managed using [stow](https://www.gnu.org/software/stow/).
+Personal Linux configuration.
 
-## Replicate
+## Layout
 
-```sh
-git clone --depth=1 https://github.com/ju4n97/dotfiles.git ~/dotfiles
-
-# Or with submodules
-git clone --depth=1 --recurse-submodules https://github.com/ju4n97/dotfiles.git ~/dotfiles
+```text
+.
+├── home/                  # Files deployed to $HOME with GNU Stow
+├── packages/              # Package lists
+│   ├── _common/
+│   ├── arch/
+│   └── void/
+├── mise.toml              # Development tools and runtimes
+├── install-packages.sh
+└── install-dev.sh
 ```
 
-## Create symlinks
+## Requirements
+
+- Git
+- GNU Stow
+- [`mise`](https://mise.jdx.dev/)
+- Arch Linux or Void Linux
+
+## Install packages
 
 ```sh
-sudo pacman -S stow
-cd ~/dotfiles && stow .
+./install-packages.sh
 ```
 
-## Install base packages
+The script detects the distribution and installs every package listed under:
+
+- `packages/_common/`
+- `packages/<distro>/`
+
+## Install development toolchain
 
 ```sh
-sudo pacman -S --needed $(cat ~/pacman.base.txt)
+./install-toolchain.sh
 ```
 
-## Install base AUR packages
+Installs every tool declared in `mise.toml`.
+
+## Deploy dotfiles
 
 ```sh
-yay -S --needed $(cat ~/aur.base.txt)
+stow -d home -t "$HOME" .
 ```
 
-## Setup
+## Update
+
+System packages:
 
 ```sh
-chmod +x ~/dotfiles.sh && ~/dotfiles.sh --reflector --earlyoom --fonts --firewall --bluetooth --docker --devtools --zsh --xdg-user-dirs --steam --wacom
+./install-packages.sh
+```
+
+Development tools:
+
+```sh
+mise upgrade
 ```

@@ -1,0 +1,6 @@
+btop
+htop
+iotop
+lsof
+strace
+sysstat

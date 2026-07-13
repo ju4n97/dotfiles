@@ -1,0 +1,8 @@
+NetworkManager
+nmap
+openssh
+openvpn
+openssl
+tcpdump
+traceroute
+wireguard-tools

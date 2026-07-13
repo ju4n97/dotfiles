@@ -1,0 +1,9 @@
+[tools]
+node = "latest"
+bun = "latest"
+deno = "latest"
+go = "latest"
+oh-my-posh = "latest"
+python = "latest"
+uv = "latest"
+dotnet = ["8.0", "9.0", "10.0"]

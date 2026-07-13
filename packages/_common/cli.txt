@@ -1,0 +1,11 @@
+bat
+curl
+eza
+fd
+fzf
+jq
+less
+ripgrep
+tree
+wget
+zoxide

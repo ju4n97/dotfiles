@@ -1,0 +1,5 @@
+nvidia
+nvidia-libs
+nvidia-gtklibs
+nvidia-dkms
+nvidia-firmware
