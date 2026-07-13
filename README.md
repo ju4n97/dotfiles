@@ -23,6 +23,14 @@ Personal Linux configuration.
 - [`mise`](https://mise.jdx.dev/)
 - Arch Linux or Void Linux
 
+
+## Deploy dotfiles
+
+```sh
+stow -d home -t "$HOME" .
+```
+
+
 ## Install packages
 
 ```sh
@@ -37,16 +45,10 @@ The script detects the distribution and installs every package listed under:
 ## Install development toolchain
 
 ```sh
-./install-toolchain.sh
+mise install
 ```
 
-Installs every tool declared in `mise.toml`.
-
-## Deploy dotfiles
-
-```sh
-stow -d home -t "$HOME" .
-```
+Installs every tool declared in `~/.config/mise/mise.toml`.
 
 ## Update
 
