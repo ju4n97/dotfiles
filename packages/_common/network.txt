@@ -1,4 +1,3 @@
-NetworkManager
 nmap
 openssh
 openvpn
