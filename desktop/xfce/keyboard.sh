@@ -74,7 +74,7 @@ enable_custom_shortcuts() {
 
 configure_shortcuts() {
     bind_shortcut "Print" \
-        "flameshot gui"
+        "maim -s | swappy -f -"
 
     bind_shortcut "<Super>Space" \
         'rofi -show combi -combi-modes "window,run,ssh" -modes combi'
@@ -86,7 +86,7 @@ configure_shortcuts() {
         'sh -c "xcolor | xsel -ib"'
 
     bind_shortcut "<Super><Shift>X" \
-        'sh -c "find ~/Projects -mindepth 1 -maxdepth 1 -type d | rofi -dmenu -i | xargs -r code-oss"'
+        'sh -c "find ~/Desktop/github.com -mindepth 2 -maxdepth 2 -type d | rofi -dmenu -i | xargs -r code"'
 }
 
 main() {
